@@ -1,6 +1,6 @@
 ## Server for DULT
 
-This is a simulation of an unwanted location tracking accessory in the form of a GATT Server
+This is a simulation of an unwanted location tracking accessory in the form of a GATT Server.
 The server has a service named "Non owner service" which helps in identifying it as an unwanted tracker.
 
 ### Install
@@ -8,7 +8,7 @@ The server has a service named "Non owner service" which helps in identifying it
 ```
 pip install dbus-python multiprocessing playsound  
 ```
-- Install the latest version of bluez following the steps from [here](https://www.makeuseof.com/install-bluez-latest-version-on-ubuntu/)
+- Install the latest version of ```bluez``` following the steps from [here](https://www.makeuseof.com/install-bluez-latest-version-on-ubuntu/)
 
 ### Run
 

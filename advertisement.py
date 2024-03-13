@@ -17,12 +17,12 @@ class Advertisement(dbus.service.Object):
         self.path = self.PATH_BASE + str(index)
         self.bus = BleTools.get_bus()
         self.ad_type = advertising_type
-        self.local_name = None
+        self.local_name = "ABC"
         self.service_uuids = None
         self.solicit_uuids = None
         self.manufacturer_data = None
         self.service_data = None
-        self.include_tx_power = None
+        self.include_tx_power = True
         dbus.service.Object.__init__(self, self.bus, self.path)
 
     def get_properties(self):
@@ -31,6 +31,8 @@ class Advertisement(dbus.service.Object):
 
         if self.local_name is not None:
             properties["LocalName"] = dbus.String(self.local_name)
+
+        properties["NearOwner"] = dbus.String("1")
 
         if self.service_uuids is not None:
             properties["ServiceUUIDs"] = dbus.Array(self.service_uuids,
@@ -51,6 +53,7 @@ class Advertisement(dbus.service.Object):
         if self.local_name is not None:
             properties["LocalName"] = dbus.String(self.local_name)
 
+        print(properties)
         return {LE_ADVERTISEMENT_IFACE: properties}
 
     def get_path(self):
